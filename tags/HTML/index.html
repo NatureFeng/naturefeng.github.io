@@ -1,4 +1,5 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="alternative" href="/atom.xml" title="Feng's Daily" type="application/atom+xml"><link rel="icon" href="/favicon.png"><title>HTML - Feng's Daily</title><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro"><link rel="stylesheet" href="/css/main.css" type="text/css"><!--[if lt IE 9]><script>(function(a,b){a="abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output progress section summary template time video".split(" ");for(b=a.length-1;b>=0;b--)document.createElement(a[b])})()</script><![endif]--></head><body><header class="head"><h1 class="head-title u-fl"><a href="/">Feng's Daily</a></h1><nav class="head-nav u-fr"><ul class="head-nav__list"><li class="head-nav__item"><a href="/" class="head-nav__link">Home</a></li><li class="head-nav__item"><a href="/archives" class="head-nav__link">Archives</a></li><li class="head-nav__item"><a href="/about" class="head-nav__link">about</a></li></ul></nav></header><main class="main"><article class="post"><header class="post__head"><time datetime="2014-06-28T19:22:44.000Z" class="post__time">June 29, 2014</time><h1 class="post__title"><a href="/2014/06/29/HTML全局属性介绍/">HTML全局属性介绍</a></h1></header><div class="post__main echo"><h2 id="前言">前言</h2>
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="alternative" href="/atom.xml" title="Feng's Daily" type="application/atom+xml"><link rel="icon" href="/favicon.png"><title>HTML - Feng's Daily</title><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro"><link rel="stylesheet" href="/css/main.css" type="text/css">
+<!--[if lt IE 9]><script>(function(a,b){a="abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output progress section summary template time video".split(" ");for(b=a.length-1;b>=0;b--)document.createElement(a[b])})()</script><![endif]--></head><body><header class="head"><h1 class="head-title u-fl"><a href="/">Feng's Daily</a></h1><nav class="head-nav u-fr"><ul class="head-nav__list"><li class="head-nav__item"><a href="/" class="head-nav__link">Home</a></li><li class="head-nav__item"><a href="/archives" class="head-nav__link">Archives</a></li><li class="head-nav__item"><a href="/about" class="head-nav__link">about</a></li></ul></nav></header><main class="main"><article class="post"><header class="post__head"><time datetime="2014-06-28T19:22:44.000Z" class="post__time">June 29, 2014</time><h1 class="post__title"><a href="/2014/06/29/HTML全局属性介绍/">HTML全局属性介绍</a></h1></header><div class="post__main echo"><h2 id="前言">前言</h2>
 <p>HTML中存在很多全局属性，但是我们可能却对此并不了解，所以我做一下整理和解释。</p>
 <h2 id="目录">目录</h2>
 <ul>
@@ -66,12 +67,12 @@
 <p><strong>html5</strong></p>
 <p>contenteditable属性是一个可枚举的元素属性，它的值可以是空字符串，true或者false。空字符串或者ture属性映射为true状态。而false则映射到false状态。除此之外，在缺少默认值和存在无效的默认值时还有第三种状态，继承状态。</p>
 <p>true状态表示这个元素是可以编辑的，而在继承状态下如果它的父元素是可编辑的那么继承状态下的元素也是可编辑的。false状态则表明元素是不可编辑的。</p>
-<pre><code>element.contentEditable [ = value ]
-//返回 <span class="string">"true"</span>，<span class="string">"false"</span>，<span class="keyword">or</span> <span class="string">"inherit"</span>，结果取决于元素contenteditable属性的值。
+<pre><code>element.content<span class="variable">Editable</span> [ = value ]
+//返回 <span class="string">"true"</span>，<span class="string">"false"</span>，or <span class="string">"inherit"</span>，结果取决于元素contenteditable属性的值。
 //可以设置或者更改状态.
 //如果新的属性不是<span class="string">"true"</span>，<span class="string">"false"</span>，或者<span class="string">"inherit"</span>这三个字符串中的一个，将抛出语法错误。
-element.isContentEditable
-//如果这个元素是可写的，将返回<span class="keyword">true</span>，如果不是，将返回<span class="keyword">false</span>。
+element.is<span class="variable">ContentEditable</span>
+//如果这个元素是可写的，将返回<span class="literal">true</span>，如果不是，将返回<span class="literal">false</span>。
 </code></pre><ul>
 <li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/editing.html#attr-contenteditable" target="_blank" rel="external">WHATWG HTML Living Standard</a></li>
 </ul>
@@ -192,4 +193,4 @@ element.isContentEditable
 <li><p><a href="http://www.w3help.org/zh-cn/" target="_blank" rel="external">w3help</a></p>
 </li>
 </ul>
-</div><footer class="post__foot u-cf"><ul class="post__tag u-fl"><li class="post__tag__item"><a href="/tags/HTML/" class="post__tag__link">HTML</a></li></ul><!--a.post__foot-link.u-fr(href = config.root + post.path + '#disqus_thread')= theme.comment_link--></footer></article></main><footer class="foot"><div class="foot-copy u-fl">&copy; 2014 NatureFeng</div><menu class="page-menu u-fr"><li class="page-menu__item"><span title="Previous" class="page-menu__link icon-arrow-left page-menu__link--disabled"></span></li><li class="page-menu__item"><span title="Next" class="page-menu__link icon-arrow-right page-menu__link--disabled"></span></li></menu></footer></body></html>
+</div><footer class="post__foot u-cf"><ul class="post__tag u-fl"><li class="post__tag__item"><a href="/tags/HTML/" class="post__tag__link">HTML</a></li></ul><!--a.post__foot-link.u-fr(href = config.root + post.path + '#disqus_thread')= theme.comment_link--></footer></article></main><footer class="foot"><div class="foot-copy u-fl">&copy; 2015 NatureFeng</div><menu class="page-menu u-fr"><li class="page-menu__item"><span title="Previous" class="page-menu__link icon-arrow-left page-menu__link--disabled"></span></li><li class="page-menu__item"><span title="Next" class="page-menu__link icon-arrow-right page-menu__link--disabled"></span></li></menu></footer></body></html>

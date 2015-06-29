@@ -7,11 +7,9 @@
 <li>Update README.md 之后，全部用户被修正了。</li>
 </ul>
 <ol>
-<li>“鬼栈”的 commits 没有计入，Github help 中在 <a href="https://help.github.com/articles/setting-your-email-in-git/#commits-on-github-arent-linking-to-my-account" target="_blank" rel="external">Setting your email in Git</a> 中，有说明。<blockquote>
-<p>Make sure that the email address you set in your local Git configuration has been <a href="https://help.github.com/articles/adding-an-email-address-to-your-github-account" target="_blank" rel="external">added to your GitHub account’s email settings</a>. After adding your email, commits that used that email address will automatically be counted in your contributions graph. There is no limit to the number of email addresses you can add to your account.</p>
-</blockquote>
-</li>
+<li>“鬼栈”的 commits 没有计入，Github help 中在 <a href="https://help.github.com/articles/setting-your-email-in-git/#commits-on-github-arent-linking-to-my-account" target="_blank" rel="external">Setting your email in Git</a> 中，有说明。</li>
 </ol>
+<p>Make sure that the email address you set in your local Git configuration has been <a href="https://help.github.com/articles/adding-an-email-address-to-your-github-account" target="_blank" rel="external">added to your GitHub account’s email settings</a>. After adding your email, commits that used that email address will automatically be counted in your contributions graph. There is no limit to the number of email addresses you can add to your account.</p>
 <p>因为你的git config中的email没有添加到 Github 账户中，在你添加 email 以后，过去使用这个email的commit将会自动计数。</p>
 <ol>
 <li>这个来看 Github help 的 <a href="https://help.github.com/articles/why-are-my-commits-linked-to-the-wrong-user/#commits-are-not-linked-to-any-user" target="_blank" rel="external">Why are my commits linked to the wrong user</a>?<br>这里说明这是 Github 的一种报错的机制。<br>里面有三种情况：<br>未识别的作者（有 email 地址）：这时候你需要添加 email 地址到你的 Github 账户中去，这样就是之前说的，会自动识别。<br>未识别的作者（无email地址）：这其实是说你所使用的 email 地址已经用在了别的用户账号里，这时候你需要修改 git config 中的 email，并且在 Github 用户中添加该 email。但是这种情况，过去的 commit 在修改之后仍然无法被连接到正确的用户，这时候你需要通过脚本来修改提交记录（慎行）<a href="https://help.github.com/articles/changing-author-info/" target="_blank" rel="external">Changing author info</a>。<br>不可用的 email：这说明你的 git config 里的 email 地址是一个空白或者没有按照 email 格式正确填写。这时候和2中做一样的操作就可以了，而且此处的 commit 历史记录也无法正确被连接，需要脚本来帮忙。</li>

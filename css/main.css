@@ -635,7 +635,7 @@ video {
   font-size: 1.2rem;
 }
 .post__main blockquote {
-  margin: 1.6em -60px;
+  margin: 1.6em 0px;
   padding: 30px 60px;
   border-left: 5px solid #ddd;
   background-color: #eee;

@@ -1,5 +1,5 @@
 html,body{
-    background-color: #95a5a6;
+    background-color: #34a1d7;
     color: #fff;
     font-family: 'Open Sans','Helvetica Neue',Arial,'Hiragino Sans GB','Microsoft YaHei','WenQuanYi Micro Hei',sans-serif;
 }
@@ -70,8 +70,6 @@ a:visited{color: #fff;text-decoration: none;}
 a:hover{color: #fff;text-decoration: none;}
 a:active{color: #fff;text-decoration: none;}
 
-article a:link{color: #34495e;} 
-article a:visited{color: #34495e;}
 article a:hover{color: #2ecc71;}
 article a:active{color: #2ecc71;}
 

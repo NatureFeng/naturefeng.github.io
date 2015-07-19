@@ -67,11 +67,18 @@ section{
 a{cursor: pointer;}
 a:link{color: #fff;text-decoration: none;}
 a:visited{color: #fff;text-decoration: none;}
-a:hover{color: #fff;text-decoration: none;}
-a:active{color: #fff;text-decoration: none;}
+a:hover{color: #f1c40f;text-decoration: none;}
+a:active{color: #f1c40f;text-decoration: none;}
 
-article a:hover{color: #2ecc71;}
-article a:active{color: #2ecc71;}
+aside ul a:link{text-decoration: none;}
+aside ul a:visited{text-decoration: none;}
+aside ul a:hover{text-decoration: none;}
+aside ul a:active{text-decoration: none;}
+
+article a:link{text-decoration: underline;}
+article a:visited{text-decoration: underline;}
+article a:hover{color: #f1c40f;text-decoration: underline;}
+article a:active{color: #f1c40f;text-decoration: underline;}
 
 footer{
     text-align: center;

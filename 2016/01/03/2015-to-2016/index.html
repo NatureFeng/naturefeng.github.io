@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="alternative" href="/atom.xml" title="Feng's Daily" type="application/atom+xml"><link rel="icon" href="/favicon.png"><title>Feng's Daily</title><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro"><link rel="stylesheet" href="/css/main.css" type="text/css">
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="alternative" href="/atom.xml" title="Feng's Daily" type="application/atom+xml"><link rel="icon" href="/favicon.png"><title>我的2015到2016 - Feng's Daily</title><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro"><link rel="stylesheet" href="/css/main.css" type="text/css">
 <!--[if lt IE 9]><script>(function(a,b){a="abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output progress section summary template time video".split(" ");for(b=a.length-1;b>=0;b--)document.createElement(a[b])})()</script><![endif]--></head><body><header class="head"><h1 class="head-title u-fl"><a href="/">Feng's Daily</a></h1><nav class="head-nav u-fr"><ul class="head-nav__list"><li class="head-nav__item"><a href="/" class="head-nav__link">Home</a></li><li class="head-nav__item"><a href="/archives" class="head-nav__link">Archives</a></li><li class="head-nav__item"><a href="/about" class="head-nav__link">about</a></li><li class="head-nav__item"><a href="/hust" class="head-nav__link">hust</a></li></ul></nav></header><main class="main"><article class="post"><header class="post__head"><time datetime="2016-01-03T15:38:56.000Z" class="post__time">January 3, 2016</time><h1 class="post__title"><a href="/2016/01/03/2015-to-2016/">我的2015到2016</a></h1></header><div class="post__main echo"><h2 id="前言">前言</h2>
 <p>说老实话，本来是不太想写年终总结的，毕竟这么多年了，也从来没有养成过这种习惯。而且有的事情发在别的地方总会担心被人说成是炫耀或者自作多情，而且我本身也不那么在意别人的看法。不过2015这一年也确实发生了很多的事情。</p>
 <p>说老实话，我以前一直觉得自己特别幸运</p>
@@ -41,72 +41,4 @@
 <p>不管怎么样呢，这一年，过得很有趣很充实，说实话，2016可能会因为自己给自己挖的一些坑变得有点艰难，但是我想困难总是可以克服的，这点信心还是有的。</p>
 <p>不管怎么样，我很幸福。</p>
 <p>那么，让我一直幸福下去吧。不要太贪心，只要小小的满足就好。</p>
-</div><footer class="post__foot u-cf"><ul class="post__tag u-fl"><li class="post__tag__item"><a href="/tags/年终总结/" class="post__tag__link">年终总结</a></li></ul><!--a.post__foot-link.u-fr(href = config.root + post.path + '#disqus_thread')= theme.comment_link--></footer></article><article class="post"><header class="post__head"><time datetime="2015-02-25T09:36:45.000Z" class="post__time">February 25, 2015</time><h1 class="post__title"><a href="/2015/02/25/Github用户识别机制/">Github用户识别机制</a></h1></header><div class="post__main echo"><p>前段时间有朋友遇到了一些github提交的问题，我做了一点小的调查，就在这里记录一下吧。</p>
-<p>首先问题有三个:</p>
-<ul>
-<li>所有“鬼栈”的 commits 都没有被记在 contributions 里；</li>
-<li>添加 email 之后，历史记录中，Huxpro 是被识别为一个用户（可以单独看 commit，看 profile），但鬼栈不是；</li>
-<li>Update README.md 之后，全部用户被修正了。</li>
-</ul>
-<ol>
-<li><p>“鬼栈”的 commits 没有计入，Github help 中在 <a href="https://help.github.com/articles/setting-your-email-in-git/#commits-on-github-arent-linking-to-my-account" target="_blank" rel="external">Setting your email in Git</a> 中，有说明。</p>
-<blockquote>
-<p>Make sure that the email address you set in your local Git configuration has been <a href="https://help.github.com/articles/adding-an-email-address-to-your-github-account" target="_blank" rel="external">added to your GitHub account’s email settings</a>. After adding your email, commits that used that email address will automatically be counted in your contributions graph. There is no limit to the number of email addresses you can add to your account.</p>
-</blockquote>
-<p> 因为你的git config中的email没有添加到 Github 账户中，在你添加 email 以后，过去使用这个email的commit将会自动计数。</p>
-</li>
-<li><p>这个来看 Github help 的 <a href="https://help.github.com/articles/why-are-my-commits-linked-to-the-wrong-user/#commits-are-not-linked-to-any-user" target="_blank" rel="external">Why are my commits linked to the wrong user</a>?</p>
-<p> 这里说明这是 Github 的一种报错的机制。<br> 里面有三种情况：</p>
-<ul>
-<li>未识别的作者（有 email 地址）：这时候你需要添加 email 地址到你的 Github 账户中去，这样就是之前说的，会自动识别。</li>
-<li>未识别的作者（无email地址）：这其实是说你所使用的 email 地址已经用在了别的用户账号里，这时候你需要修改 git config 中的 email，并且在 Github 用户中添加该 email。但是这种情况，过去的 commit 在修改之后仍然无法被连接到正确的用户，这时候你需要通过脚本来修改提交记录（慎行）<a href="https://help.github.com/articles/changing-author-info/" target="_blank" rel="external">Changing author info</a>。</li>
-<li>不可用的 email：这说明你的 git config 里的 email 地址是一个空白或者没有按照 email 格式正确填写。这时候和2中做一样的操作就可以了，而且此处的 commit 历史记录也无法正确被连接，需要脚本来帮忙。</li>
-</ul>
-</li>
-<li><p>在 Setting your username in Git 中有一个小贴士</p>
-<blockquote>
-<p>Tip: You don’t have to use your real name—any name works. Git actually associates commits by email address; the username is only used for identification. If you <a href="https://help.github.com/articles/setting-your-email-in-git" target="_blank" rel="external">use your email address associated with a GitHub account</a>, we’ll use your GitHub username, instead of this name.</p>
-</blockquote>
-<p> Github 会通过你的 email 来识别用户，并且一般来说，还会用你的 Github username 替换掉你设置的 username。</p>
-<p> 所以，当你更新 Update README.md 之后，根据 git config 中的 email 地址，Github 正确识别了 email，并且将你的“鬼栈”用户名替换为了 Huxpro。而根据 Github help，你修改了邮件地址，只会自动计入，而不会自动将用户名替换并正确连接。只有当你更新之后，因为 email 识别的问题，全部“鬼栈”都被替换成了你的用户名。</p>
-</li>
-</ol>
-<p>大概就是这样，详情可以去查阅 <a href="https://help.github.com/" target="_blank" rel="external">GitHub Help - GitHub Enterprise Documentation</a>。</p>
-</div><footer class="post__foot u-cf"><!--a.post__foot-link.u-fr(href = config.root + post.path + '#disqus_thread')= theme.comment_link--></footer></article><article class="post"><header class="post__head"><time datetime="2014-09-09T09:13:52.000Z" class="post__time">September 9, 2014</time><h1 class="post__title"><a href="/2014/09/09/阿里巴巴实习感言/">阿里巴巴实习感言</a></h1></header><div class="post__main echo"><p>不得不说，阿里巴巴是一个让人感到幸福的地方。</p>
-<p>在这个地方，虽然周围的同事大部分都年长了我很多，但是我却感受到了一种难得的自由和平等。</p>
-<p>不知道明年还会不会再去，但是，我想，我一定不会忘记他们。</p>
-<p>大家帮了我很多，让我明白了很多。</p>
-<p>这是一个比学校更像学校，也是一个比学校更像家的地方。</p>
-<p>我有时候都会有点后悔，今年应该去百度的，明年来阿里然后一直呆在这里不走了。呆在这里这的很开心。</p>
-<p>谢谢你们。</p>
-<h2 id="收获">收获</h2>
-<ul>
-<li><p>学会了骑自行车。别笑，我以前一直都不会骑车，公司里到处都是自行车，然后终于在夜深人静的时候让我练成了自行车大法，不过话说回来自行车真好玩。</p>
-</li>
-<li><p>更多的思考业务。工作的时候，往往技术问题是次要的，业务问题才是比较重要的。</p>
-</li>
-</ul>
-</div><footer class="post__foot u-cf"><ul class="post__tag u-fl"><li class="post__tag__item"><a href="/tags/实习/" class="post__tag__link">实习</a></li><li class="post__tag__item"><a href="/tags/阿里巴巴/" class="post__tag__link">阿里巴巴</a></li><li class="post__tag__item"><a href="/tags/感言/" class="post__tag__link">感言</a></li></ul><!--a.post__foot-link.u-fr(href = config.root + post.path + '#disqus_thread')= theme.comment_link--></footer></article><article class="post"><header class="post__head"><time datetime="2014-06-28T19:22:44.000Z" class="post__time">June 29, 2014</time><h1 class="post__title"><a href="/2014/06/29/HTML全局属性介绍/">HTML全局属性介绍</a></h1></header><div class="post__main echo"><h2 id="前言">前言</h2>
-<p>HTML中存在很多全局属性，但是我们可能却对此并不了解，所以我做一下整理和解释。</p>
-<h2 id="目录">目录</h2>
-<ul>
-<li><a href="#accesskey">accesskey</a></li>
-<li><a href="#class">class</a></li>
-<li><a href="#contenteditable">contenteditable</a></li>
-<li><a href="#contextmenu">contextmenu</a></li>
-<li><a href="#data-\*">data-*</a></li>
-<li><a href="#dir">dir</a></li>
-<li><a href="#draggable">draggable</a></li>
-<li><a href="#dropzone">dropzone</a></li>
-<li><a href="#hidden">hidden</a></li>
-<li><a href="#id">id</a></li>
-<li><a href="#item">item</a></li>
-<li><a href="#lang">lang</a></li>
-<li><a href="#spellcheck">spellcheck</a></li>
-<li><a href="#style">style</a></li>
-<li><a href="#tabindex">tabindex</a></li>
-<li><a href="#title">title</a></li>
-</ul>
-</div><footer class="post__foot u-cf"><ul class="post__tag u-fl"><li class="post__tag__item"><a href="/tags/HTML/" class="post__tag__link">HTML</a></li><li class="post__tag__item"><a href="/tags/全局属性/" class="post__tag__link">全局属性</a></li><li class="post__tag__item"><a href="/tags/介绍/" class="post__tag__link">介绍</a></li></ul><a href="/2014/06/29/HTML全局属性介绍/#more" class="post__more u-fr">READ MORE</a></footer></article><article class="post"><header class="post__head"><time datetime="2014-05-12T14:11:11.000Z" class="post__time">May 12, 2014</time><h1 class="post__title"><a href="/2014/05/12/2014年实习面试经过/">2014年实习面试经过</a></h1></header><div class="post__main echo"><p>说一下结局，百度和阿里巴巴最后都给了我offer，虽然也蛮喜欢百度的，不过因为百度给的比较晚，而且也认识了很多一起要去阿里实习的朋友，所以我最后决定去阿里。</p>
-<p>我应聘的职位是实习前端开发工程师。</p>
-<p></div><footer class="post__foot u-cf"><ul class="post__tag u-fl"><li class="post__tag__item"><a href="/tags/实习/" class="post__tag__link">实习</a></li><li class="post__tag__item"><a href="/tags/面试/" class="post__tag__link">面试</a></li><li class="post__tag__item"><a href="/tags/2014/" class="post__tag__link">2014</a></li></ul><a href="/2014/05/12/2014年实习面试经过/#more" class="post__more u-fr">READ MORE</a></footer></article></main><footer class="foot"><div class="foot-copy u-fl">&copy; 2016 NatureFeng</div><menu class="page-menu u-fr"><li class="page-menu__item"><span title="Previous" class="page-menu__link icon-arrow-left page-menu__link--disabled"></span></li><li class="page-menu__item"><span title="Next" class="page-menu__link icon-arrow-right page-menu__link--disabled"></span></li></menu></footer></body></html>
+</div><footer class="post__foot u-cf"><ul class="post__tag u-fl"><li class="post__tag__item"><a href="/tags/年终总结/" class="post__tag__link">年终总结</a></li></ul><!--a.post__foot-link.u-fr(href = config.root + post.path + '#disqus_thread')= theme.comment_link--></footer></article></main><footer class="foot"><div class="foot-copy u-fl">&copy; 2016 NatureFeng</div><menu class="page-menu u-fr"><li class="page-menu__item"><span title="Previous" class="page-menu__link icon-arrow-left page-menu__link--disabled"></span></li><li class="page-menu__item"><a title="Next" href="/2015/02/25/Github用户识别机制/" class="page-menu__link icon-arrow-right"></a></li></menu></footer></body></html>

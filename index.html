@@ -1,5 +1,135 @@
 <!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="alternative" href="/atom.xml" title="Feng's Daily" type="application/atom+xml"><link rel="icon" href="/favicon.png"><title>Feng's Daily</title><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro"><link rel="stylesheet" href="/css/main.css" type="text/css">
-<!--[if lt IE 9]><script>(function(a,b){a="abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output progress section summary template time video".split(" ");for(b=a.length-1;b>=0;b--)document.createElement(a[b])})()</script><![endif]--></head><body><header class="head"><h1 class="head-title u-fl"><a href="/">Feng's Daily</a></h1><nav class="head-nav u-fr"><ul class="head-nav__list"><li class="head-nav__item"><a href="/" class="head-nav__link">Home</a></li><li class="head-nav__item"><a href="/archives" class="head-nav__link">Archives</a></li><li class="head-nav__item"><a href="/about" class="head-nav__link">about</a></li><li class="head-nav__item"><a href="/hust" class="head-nav__link">hust</a></li></ul></nav></header><main class="main"><article class="post"><header class="post__head"><time datetime="2016-01-03T15:38:56.000Z" class="post__time">January 3, 2016</time><h1 class="post__title"><a href="/2016/01/03/2015-to-2016/">我的2015到2016</a></h1></header><div class="post__main echo"><h2 id="前言">前言</h2>
+<!--[if lt IE 9]><script>(function(a,b){a="abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output progress section summary template time video".split(" ");for(b=a.length-1;b>=0;b--)document.createElement(a[b])})()</script><![endif]--></head><body><header class="head"><h1 class="head-title u-fl"><a href="/">Feng's Daily</a></h1><nav class="head-nav u-fr"><ul class="head-nav__list"><li class="head-nav__item"><a href="/" class="head-nav__link">Home</a></li><li class="head-nav__item"><a href="/archives" class="head-nav__link">Archives</a></li><li class="head-nav__item"><a href="/about" class="head-nav__link">about</a></li><li class="head-nav__item"><a href="/hust" class="head-nav__link">hust</a></li></ul></nav></header><main class="main"><article class="post"><header class="post__head"><time datetime="2016-09-21T16:48:37.000Z" class="post__time">September 22, 2016</time><h1 class="post__title"><a href="/2016/09/22/如何更好的了解ECMAScript/">如何更好的了解ECMAScript</a></h1></header><div class="post__main echo"><p>本文源自于前段时间在团队内部的分享。稍微自己总结一下。<br>本文写自2016年9月21日。鉴于前端的飞速发展，一段时间后不能保证文章内的内容还没有过时。</p>
+<h2 id="什么是ECMAScript">什么是ECMAScript</h2>
+<p>首先既然要更好的了解，起码得先说说什么是 ECMAScript。</p>
+<p>ECMAScript 是一种由 ECMA国际（前身为欧洲计算机制造商协会）通过 ECMA-262 标准化的脚本程序设计语言。</p>
+<p>看起来出现了很多奇怪的名词，ECMA国际？ECMA-262？黑人问号？？？</p>
+<p>那么然后来稍微介绍一下什么是 ECMA国际。</p>
+<h3 id="ECMA国际">ECMA国际</h3>
+<p>Ecma国际（Ecma International）是一家国际性会员制度的信息和电信标准组织。1994年之前，名为欧洲计算机制造商协会（European Computer Manufacturers Association）。因为计算机的国际化，组织的标准牵涉到很多其他国家，因此组织决定改名表明其国际性。现名称已不属于首字母缩略字。</p>
+<p>与国家政府标准机构不同，Ecma国际是企业会员制的组织。组织的标准化过程比较商业化，自称这种营运方式减少官僚追求效果。</p>
+<p>上面这些信息都可以在 WIKI 中找到。大家可以很明确的看到，Ecma国际是一家和企业密切相连的组织，所以 Ecma国际制定的规范都是由各类企业来做主要的制定和推广。</p>
+<p>那么既然说到了 Ecma国际，那么它都做了些什么事呢？</p>
+<p>其实 Ecma国际负责了很多标准的制定，比如有如下这些规范。大家可以看到这里面有我们今天的主角，ECMAScript 规范。</p>
+<ul>
+<li>CD-ROM格式（之后被国际标准化组织批准为ISO 9660）</li>
+<li>C#语言规范</li>
+<li>C++/CLI语言规范</li>
+<li>通用语言架构（CLI）</li>
+<li>ECMAScript语言规范（JavaScript）</li>
+<li>Eiffel语言</li>
+<li>电子产品环境化设计要素</li>
+<li>Universal 3D标准</li>
+<li>OOXML</li>
+<li>Dart语言规范</li>
+</ul>
+<h2 id="JAVASCRIPT的诞生">JAVASCRIPT的诞生</h2>
+<p>在说 ECMA262 之前，我们先来讲讲 javascript 的历史。</p>
+<p>在1994年，Netscape 发布了 Navigator0.9，但是因为那个时候的浏览器缺乏和用户有良好交互的能力。所以 Netscape 急切渴望一门可以在浏览器中运行，可以提供一定用户交互的语言。</p>
+<p>然后在1995年，Netscape 让 Brendan Eich 去开发这门语言。然而，javascript 诞生了。</p>
+<p>然而在此之后，Microsoft 推出了一门类似的语言，JScript。</p>
+<p>Netscape 为了提升 javascript 的竞争力，于是将 javascript 提供给 ECMA组织 进行标准化。</p>
+<p>然后，1997年7月，ECMA262 标准出台。</p>
+<p>时隔14年之后，ECMA-262 标准也被另一个国际标准化组织 ISO（International Organization for Standardization）在2011年6月批准，标准号是 ISO-16262。</p>
+<p>ECMAScript 作为一门脚本程序设计语言标准，并不只有 javascript 这一种实现，它也有很多的方言实现。比如有下面这些语言：</p>
+<ul>
+<li>JavaScript</li>
+<li>Ejscript</li>
+<li>JScript .NET</li>
+<li>ActionScript</li>
+<li>DMDScript</li>
+<li>CriScript</li>
+<li>InScript</li>
+<li>飞速发展和稳定期</li>
+</ul>
+<p>在 ECMAScript 规范初版发布后不久。</p>
+<p>1998年6月，ECMAScript 2.0 发布。</p>
+<p>1999年12月，ECMAScript 3.0 发布。</p>
+<p>这时，ECMAScript 规范本身也相对比较完善和稳定了，但是接下来的事情，就比较悲剧了。</p>
+<p>2007年10月。。。。ECMAScript 4.0 草案发布。</p>
+<p>这次的新规范，历时颇久，规范的新内容也有了很多争议。</p>
+<p>在制定ES4的时候，是分成了两个工作组同时工作的。</p>
+<p>一边是以 Adobe, Mozilla, Opera 和 Google为主的 ECMAScript 4 工作组。</p>
+<p>一边是以 Microsoft 和 Yahoo 为主的 ECMAScript 3.1 工作组。</p>
+<p>ECMAScript 4 的很多主张比较激进，改动较大。而 ECMAScript 3.1 则主张小幅更新。</p>
+<p>最终经过 TC39 的会议，决定将一部分不那么激进的改动保留发布为 ECMAScript 3.1，然后将一部分比较激进的部分放置到 ES.NEXT 中，命名为 Harmony（和谐），留待以后再进行商榷。接下来，ECMAScript 3.1 变成了 ECMAScript 5，而 ES.NEXT 中的那些特性，则有着相当一部分被ECMAScript 6，也就是 ECMAScript 2015 所吸收了。所以说虽然 ECMAScript 4 被废弃了，但是它终究还是通过另一种方式活了下来。</p>
+<p>然后，2009年12月，ECMAScript 5 发布。</p>
+<p>2011年6月，ECMAScript 5.1 发布。</p>
+<h3 id="TC39">TC39</h3>
+<p>中间插个小话题。其实在前面大家仔细看，会发现有个名词，TC39。为了接下来的内容，所以先来解释一下 TC39 是什么。</p>
+<p>TC（Technical Committees）</p>
+<p>TG（Task Groups）</p>
+<p>在ECMA国际，每个标准都会有一个 TC 来负责，而一个 TC 中可能会有不同的 TG 来负责不同的工作。而负责 ECMA262，也就是我们所说的 ECMAScript 的就是 TC39（以前叫 TC39-TG1）。</p>
+<p><a href="http://www.ecma-international.org/memento/org.htm" target="_blank" rel="external">Ecma organisation</a> 在这里我们可以看到各个 TC，并且可以查看其负责的标准。</p>
+<h2 id="ECMAScript_2015">ECMAScript 2015</h2>
+<p>接下来是一部重头戏。</p>
+<p>2015年6月，ECMAScript 6，也就是 ECMAScript 2015 发布了。</p>
+<p>新的规范中，带有大量 ECMAScript 4 中激进特性，以及常年的提案积累。所以 ECMAScript 6 里和前一版标准有了非常大的差别。</p>
+<p>从 ECMAScript 6 开始，标准有了新的，更加规范化和快速的制定流程。面对着每年一次的，频繁的标准更替，再采用1234的版本号来标注规范显得不太合适。所以从 ECMAScript 6 开始，就开始采用年号来做版本。即 ECMAScript 2015。</p>
+<h2 id="新的规范制定流程">新的规范制定流程</h2>
+<p>在新的规范制定流程中，要求成文标准要从事实标准中诞生，实现先于标准存在，大家可以在接下来的流程说明中看出来。</p>
+<p>每个新特性，从开始到完成一共要经历5个阶段。</p>
+<p>strawman (稻草人)阶段</p>
+<ul>
+<li>任何人都可以提交pull request到 <a href="https://github.com/tc39/ecma262" target="_blank" rel="external">GitHub - tc39/ecma262: Status, process, and documents for ECMA262</a></li>
+<li>可以是一个提议，想法，初步描述</li>
+</ul>
+<p>proposal（提案）阶段</p>
+<ul>
+<li>TC39制定成员作为 champion</li>
+<li>TC39审阅通过</li>
+<li>有实现的 Demo 或者 Polyfill</li>
+<li>初步描写标准的语义语法算法复杂度解决的问题等</li>
+</ul>
+<p>Draft（草案）阶段</p>
+<ul>
+<li>有两个或两个以上的实现（包括babel这类的转译实现）</li>
+<li>使用正式的语言描述该语法，api等</li>
+</ul>
+<p>candidate（候选）阶段</p>
+<ul>
+<li>至少2个实现，可以为实验性实现</li>
+<li>ECMAScript spec editor 通过审核</li>
+<li>TC39 review 通过</li>
+<li>文本编写完成</li>
+</ul>
+<p>Finished（完成）阶段</p>
+<ul>
+<li>编写 test 262 测试用例</li>
+<li>通过两个实现该特性的内核测试</li>
+<li>ECMAScript spec editor 通过审核</li>
+<li>开发者表示支持和认可</li>
+</ul>
+<p>接下来，在每年的3月和9月，都会提交新特性的申请，在 ECMA General Assembly 通过以后，被添加到标准中去。</p>
+<p>值得注意的是，TC39 每年的工作日程也是规划好了的。</p>
+<p>每年的3月，TC39 会召开会议，将完成的特性添加到标准中。</p>
+<p>每年的4月到6月，会由 ECMA CC 和 ECMA CG 来做 Review。</p>
+<p>每年的7月，批准通过新标准并且发布。所以，ECMAScript 2016 标准，其实也已经正式发布了，虽然只新增了两个特性。我们现在已经可以开始看 ECMAScript 2017 的草案了。</p>
+<h2 id="迷茫的新特性">迷茫的新特性</h2>
+<p>对于有些人来说，前端的更新总是很突兀，很让人迷茫。</p>
+<p>但是其实不是的。变化总是一点一点发生的。</p>
+<p><a href="https://github.com/tc39/proposals" target="_blank" rel="external">GitHub - tc39/proposals: Tracking ECMAScript Proposals</a></p>
+<p>我们可以在 TC39 的 Github 仓库中找到完成了，废弃的，以及正在进行中的提案。</p>
+<p>多去关注这些东西，对于很多新事物的到来，我们也就不会有多惊讶了。</p>
+<h2 id="别的_ECMA_标准？">别的 ECMA 标准？</h2>
+<p>和 ECMAScript 有关的标准只有 ECMA262 吗？</p>
+<p>其实不是。和 ECMAScript 有关的标准有 ECMA262，ECMA290，ECMA327，ECMA357，ECMA402，ECMA404，ECMA414等等。</p>
+<p>其中290，327，357等等没有推广开来，被废弃。</p>
+<p>ECMA 262 是语言规范本身。</p>
+<p>ECMA 402 则是制定一些基于 ECMAScript 5 或者之后版本的一些国际化 API 标准。</p>
+<p>ECMA 404 是JSON规范。</p>
+<p>ECMA 414 则规定了哪些规范是和 ECMAScript 有关的。目前内部就包含了 262，402和404。</p>
+<h3 id="备注">备注</h3>
+<p>如果大家想更好的关注标准的变化，可以订阅 TC39 的邮件组，关注 TC39 的 Github，并且在 Twitter 上关注 TC39 的成员。</p>
+<h3 id="引用">引用</h3>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/ECMAScript" target="_blank" rel="external">ECMAScript</a></li>
+<li><a href="http://www.ecma-international.org/default.htm" target="_blank" rel="external">Welcome to Ecma International</a></li>
+<li><a href="http://ejohn.org/blog/ecmascript-harmony/" target="_blank" rel="external">John Resig - ECMAScript Harmony</a></li>
+<li><a href="https://www.zhihu.com/question/39993685/answer/84166978?from=profile_answer_card" target="_blank" rel="external">如何评价 ECMAScript 2016（ES7）只新增2个特性？ - 张秋怡的回答</a></li>
+<li><a href="https://tc39.github.io/process-document/" target="_blank" rel="external">The TC39 Process</a></li>
+</ul>
+</div><footer class="post__foot u-cf"><ul class="post__tag u-fl"><li class="post__tag__item"><a href="/tags/ECMAScript/" class="post__tag__link">ECMAScript</a></li></ul><!--a.post__foot-link.u-fr(href = config.root + post.path + '#disqus_thread')= theme.comment_link--></footer></article><article class="post"><header class="post__head"><time datetime="2016-01-03T15:38:56.000Z" class="post__time">January 3, 2016</time><h1 class="post__title"><a href="/2016/01/03/2015-to-2016/">我的2015到2016</a></h1></header><div class="post__main echo"><h2 id="前言">前言</h2>
 <p>说老实话，本来是不太想写年终总结的，毕竟这么多年了，也从来没有养成过这种习惯。而且有的事情发在别的地方总会担心被人说成是炫耀或者自作多情，而且我本身也不那么在意别人的看法。不过2015这一年也确实发生了很多的事情。</p>
 <p>说老实话，我以前一直觉得自己特别幸运</p>
 <p>想去的学校，去了</p>

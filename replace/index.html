@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <title>replace</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./css/index.css">
+        <script href="./js/model.js"></script>
+        <style media="screen">
+        #after {
+          min-height: 100px;
+          background-color: #fff;
+          width: 500px;
+        }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h3>replace demo</h3>
+        </header>
+        <div id="content">
+          <h5>敏感字</h5>
+          <textarea id="keyword" name="nothing" rows="8" cols="80">测试</textarea>
+          <h5>输入内容</h5>
+          <textarea id="before" name="nothing" rows="8" cols="80">这是一个测试数据</textarea>
+          <h5>输出内容</h5>
+          <textarea id="after" name="nothing" rows="8" cols="80"></textarea>
+        </div>
+
+        <footer>
+            <p></p>
+        </footer>
+        <script type="text/javascript">
+        document.getElementById('before').addEventListener('input', replaceFunc);
+        document.getElementById('keyword').addEventListener('input', replaceFunc);
+
+        function replaceFunc() {
+          var keywordList = document.getElementById('keyword').value.split(/[\s\n]/);
+          keywordList = keywordList.map(function(keyword) {
+            return keyword.split('').map(function(item) {
+              if ('$()*+.[]?\\^{}|'.indexOf(item) === -1) return item;
+              return '\\' + item
+            }).join('');
+          });
+          document.getElementById('after').value = document.getElementById('before').value.replace(eval('/(' + keywordList.join('|') + ')/g'), '和谐');
+        }
+
+        replaceFunc();
+        </script>
+    </body>
+</html>
